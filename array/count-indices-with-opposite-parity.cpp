@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> countOppositeParity(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans;
+        for(int i = 0; i<n; i++){
+            int scr = 0;
+            for(int j = i+1; j<n; j++){
+                if(nums[i] % 2 == 0 && nums[j] %2 != 0){
+                    scr++;
+                }else if(nums[i] % 2 != 0 && nums[j] %2 == 0){
+                    scr++;
+                }
+            }
+            ans.push_back(scr);
+        }
+        return ans;
+    }
+};
