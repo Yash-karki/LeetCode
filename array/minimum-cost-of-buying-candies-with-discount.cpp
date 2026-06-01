@@ -5,9 +5,15 @@ public:
         sort(cost.begin(),cost.end());
         int i = n-1;
         int ans = 0;
-        for(int i = n-1; i>=0; i -= 3){
+        int cnt = 0;
+        for(int i = n-1; i>=0; i--){
             ans += cost[i];
-            ans += cost[i-1]; 
+            cnt++;
+            if(cnt == 3){
+                ans -= cost[i];
+                cnt = 0;
+            }
+            
         }
         return ans;
     }
