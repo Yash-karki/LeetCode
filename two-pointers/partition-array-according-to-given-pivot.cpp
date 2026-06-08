@@ -14,7 +14,6 @@ public:
         }
 
         vector<int> result;
-        result.reserve(nums.size());
 
         for (int x : small) {
             result.push_back(x);
