@@ -21,7 +21,7 @@ public:
                 }
             }
         }
-        int vis[v] = {0};
+        int vis(v) = {0};
         int cnt = 0;
         for(int i = 0; i<v; i++){
             if(vis[i] == 0){
