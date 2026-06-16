@@ -8,7 +8,7 @@ public:
                 ans += ans;
             }else if(s[i] == '%'){
                 reverse(ans.begin(),ans.end());
-            }else if(s[i] == '*'){
+            }else if(s[i] == '*' && (ans.size() != 0)){
                 ans.pop_back();
             }else{
                 ans += s[i];
