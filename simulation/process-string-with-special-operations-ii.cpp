@@ -16,7 +16,7 @@ public:
             }
         }
         if(!ans.empty()){
-            for(int i = 0; i<n; i++){
+            for(int i = 0; i<ans.size(); i++){
                 if(i == k){
                     return ans[i];
                 }
