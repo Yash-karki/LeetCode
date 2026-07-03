@@ -18,7 +18,7 @@ public:
         }
         col = dupcol;
         row = duprow;
-        while(col>= 0 && row >= 0){
+        while(col>= 0 && row < n){
             if(board[row][col] == 'Q') return false;
             row++;
             col--;
