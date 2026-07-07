@@ -1,8 +1,8 @@
 class Solution {
 public:
     long long sumAndMultiply(int n) {
-        int x = 0;
-        int power = 1;
+        long long x = 0;
+        long long power = 1;
         while(n>0){
             int digit = n%10;
             if(digit != 0){
@@ -13,8 +13,8 @@ public:
             n /= 10;
         }
         
-        int sum = 0;
-        int cpy = x;
+        long long sum = 0;
+        long long cpy = x;
         while(cpy>0){
             int dig = cpy%10;
             sum += dig;
