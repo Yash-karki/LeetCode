@@ -4,8 +4,8 @@ public:
 
         vector<vector<int>> adj(n);
         for(auto &it : edges){
-            int u = edges[0];
-            int v = edges[1];
+            int u = it[0];
+            int v = it[1];
             adj[u].push_back(v);
             adj[v].push_back(u);
         }
@@ -36,7 +36,7 @@ public:
 
                 bool isComplete = true;
                 for(int node : components){
-                    if(adj[node].size() != component.size()-1){
+                    if(adj[node].size() != components.size()-1){
                         isComplete = false;
                         break;
                     }
