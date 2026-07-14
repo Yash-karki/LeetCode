@@ -10,7 +10,7 @@ public:
                 ans.push_back({});
             }
 
-            ans[freq[it]].push_back(c);
+            ans[freq[it]].push_back(it);
             freq[c]++;
         }
         return ans;
