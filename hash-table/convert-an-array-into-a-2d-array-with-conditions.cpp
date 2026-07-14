@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>> findMatrix(vector<int>& nums) {
         vector<vector<int>> ans;
-        int n = nums;
+        int n = nums.size();
         vector<int> freq(n+1);
 
         for(int it : nums){
