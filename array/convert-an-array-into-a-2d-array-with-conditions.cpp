@@ -11,7 +11,7 @@ public:
             }
 
             ans[freq[it]].push_back(it);
-            freq[c]++;
+            freq[it]++;
         }
         return ans;
     }
