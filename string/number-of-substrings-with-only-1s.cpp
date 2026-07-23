@@ -8,13 +8,12 @@ public:
         for(int i = 0; i<n; i++){
             if(s[i] == '1'){
                 cnt++;
+                ans = (ans + cnt) % MOD;
                 
             }else{
-                ans += (cnt * (cnt + 1) / 2) % MOD;
                 cnt = 0;
             }
         }
-        ans += (cnt * (cnt + 1) / 2) % MOD;
         return ans;
     }
 };
