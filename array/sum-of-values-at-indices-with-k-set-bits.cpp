@@ -1,3 +1,5 @@
+#pragma GCC optimize("Ofast")
+
 class Solution {
 public:
 
