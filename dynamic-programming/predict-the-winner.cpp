@@ -12,9 +12,9 @@ public:
     }
     bool predictTheWinner(vector<int>& nums) {
         int n  = nums.size();
-        if(solve(0,n, nums) >= 0){
-            return false;
+        if(solve(0,n-1, nums) >= 0){
+            return true;
         }
-        return true; 
+        return false; 
     }
 };
