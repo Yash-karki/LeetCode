@@ -11,6 +11,7 @@ public:
         return max(left, right);
     }
     bool predictTheWinner(vector<int>& nums) {
+        int n  = nums.size();
         if(solve(0,n, nums) >= 0){
             return true;
         }
