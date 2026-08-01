@@ -2,7 +2,7 @@ class Solution {
 public:
 
     int solve(int i , int j , vector<int> &nums){
-        if(nums[i] == nums[j]){
+        if(i == j){
             return nums[i];
         }
         int left = nums[i] - solve(i+1, j, nums);
