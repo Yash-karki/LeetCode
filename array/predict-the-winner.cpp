@@ -5,7 +5,7 @@ public:
         if(nums[i] == nums[j]){
             return nums[i];
         }
-        int left = nums[i] - sole(i+1, j, nums);
+        int left = nums[i] - solve(i+1, j, nums);
         int right = nums[j] - solve(i, j-1, nums);
 
         return max(lefft, right);
