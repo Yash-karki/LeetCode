@@ -17,7 +17,7 @@ public:
                 k--;
                 i--;
             }else{
-                nums[k] = nums2[j];
+                nums1[k] = nums2[j];
                 k--;
                 j--;
             }
