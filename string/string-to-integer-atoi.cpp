@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void solve(string& s, int& ans, int i) {
+    void solve(string& s, long long& ans, int i) {
         if (i >= s.size()) {
             return;
         } else if (s[i] < '0' || s[i] > '9') {
