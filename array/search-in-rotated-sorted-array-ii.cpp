@@ -9,14 +9,21 @@ public:
             if(nums[mid] == target){
                 return true;
             }
-            else if(nums[low] <= nums[mid]){
-                if(nums[low]<target && target<nums[mid]){
+
+            if (nums[low] == nums[mid] && nums[mid] == nums[high]) {
+                low++;
+                high--;
+                continue;
+            }
+
+            if(nums[low] <= nums[mid]){
+                if(nums[low]<=target && target<nums[mid]){
                     high = mid-1;
                 }else{
                     low = mid+1;
                 }
             }else{
-                if(nums[high] >= nums[mid] && target > nums[mid]){
+                if(nums[high] >= target && target > nums[mid]){
                     low = mid + 1;
                 }else{
                     high = mid-1;
