@@ -14,7 +14,7 @@ public:
     int myAtoi(string s) {
         int n = s.size();
         int sign = 1;
-        int ans = 0;
+        long long ans = 0;
         int i= 0;
         while (i < n && s[i] == ' ') {
             i++;
