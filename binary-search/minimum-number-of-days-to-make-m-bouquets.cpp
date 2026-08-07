@@ -9,11 +9,14 @@ public:
             if(arr[i] <= day){
                 cnt++;
             }else{
-                bouq += cnt/k;
+               
+                cnt = 0;
+            }
+            if (cnt == k){
+                bouq++;
                 cnt = 0;
             }
         }
-        bouq += cnt/k;
         if(bouq >= m){
             return true;
         }
