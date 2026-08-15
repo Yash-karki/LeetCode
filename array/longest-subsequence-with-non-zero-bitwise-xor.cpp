@@ -1,16 +1,18 @@
 class Solution {
 public:
     int longestSubsequence(vector<int>& nums) {
-        int totalXOR = 0;
-        bool hasNonZero = false;
-
+        int totalXOR = 0; // sare xor caluclate
+        bool flag = false; // isme dekhenge ki zero h ya non zero
+        int n = nums.size();
         for (int num : nums) {
-            totalXOR ^= num;
-            if (num != 0) hasNonZero = true;
+            totalXOR ^= num; // totalXOR = totalXOr ^ num
+            if (num != 0){
+                flag = true;
+            }
         }
 
-        if (!hasNonZero) return 0;      
-        if (totalXOR != 0) return nums.size(); 
-        return nums.size() - 1;  
+        if (!flag) return 0;      
+        if (totalXOR != 0) return n; 
+        return n-1;  
     }
 };
