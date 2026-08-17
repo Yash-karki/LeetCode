@@ -13,10 +13,10 @@ public:
 
         while(i<n && j<m){
             if(s[j] >= g[i]){
-                j++;
+                i++;
             }
-            i++;
+            j++;
         }
-        return j;
+        return i;
     }
 };
