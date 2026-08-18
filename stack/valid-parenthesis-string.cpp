@@ -17,6 +17,24 @@ public:
         }
     }
     bool checkValidString(string s) {
-        return solve(s,0,0);
+        int mini= 0;
+        int maxi = 0;
+        for(auto it : s) {
+            if(it == '('){
+                maxi++;
+                mini++;
+            }else if(it ==  ')'){
+                maxi--;
+                mini--;
+            }else{
+                maxi++;
+                mini--;
+            }
+            if(maxi < 0){
+                return false;
+            }
+            mini = max(mini,0);
+        }
+        return mini == 0;
     }
 };
