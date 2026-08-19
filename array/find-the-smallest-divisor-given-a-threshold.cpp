@@ -4,16 +4,19 @@ public:
         int maxi = *max_element(nums.begin(), nums.end());
         int ans;
         int n = nums.size();
-        for (int i = 1; i <= maxi; i++) {
+        int low = 0;
+        while(low<=maxi){
+            int mid = low+(maxi-low)/2;
             int sum = 0;
             for (int j = 0; j < n; j++) {
-                sum += ceil((double)nums[j]/i);
+                sum += ceil((double)nums[j]/mid);
             }
             if(sum<=threshold){
-                ans = i;
-                break;
+                maxi = mid - 1;
+            }else{
+                low = mid+1;
             }
         }
-        return ans;
+        return low;
     }
 };
