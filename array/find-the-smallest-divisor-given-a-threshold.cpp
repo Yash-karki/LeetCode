@@ -4,7 +4,7 @@ public:
         int maxi = *max_element(nums.begin(), nums.end());
         int ans;
         int n = nums.size();
-        int low = 0;
+        int low = 1;
         while(low<=maxi){
             int mid = low+(maxi-low)/2;
             long long sum = 0;
