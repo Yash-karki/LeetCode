@@ -7,7 +7,7 @@ public:
         int low = 0;
         while(low<=maxi){
             int mid = low+(maxi-low)/2;
-            int sum = 0;
+            long long sum = 0;
             for (int j = 0; j < n; j++) {
                 sum += ceil((double)nums[j]/mid);
             }
