@@ -4,12 +4,12 @@ public:
         int low = *max_element(weights.begin(),weights.end());
         int high = 0;
         int n = weights.size();
-        for(int i = 0; i<n; i++){
+        int ans;
+        for(int i = 0; i<n; i++){ // maxCapacity
             high+=weights[i];
         }
-        for(int i = low; i<=high; i++){
-            int sum = 0;
-            int currWt = 0;
+        for(int i = low; i<=high; i++){ // capacity
+            int currWt = 0; 
             int daysreq = 1;
             for(int j = 0; j<n; j++){
 
@@ -20,9 +20,10 @@ public:
                 currWt += weights[j];
             }
             if(daysreq <= days){
-                return i;
+                ans = i;
+                break;
             }
         }
-        return -1;
+        return ans;
     }
 };
