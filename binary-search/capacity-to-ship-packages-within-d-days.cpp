@@ -7,21 +7,24 @@ public:
         for(int i = 0; i<n; i++){ // maxCapacity
             high+=weights[i];
         }
-        for(int i = low; i<high; i++){ // capacity
+        while(low<=high){ // capacity
             int currWt = 0; 
             int daysreq = 1;
+            int mid = low+(high-low)/2;
             for(int j = 0; j<n; j++){
 
-                if(currWt + weights[j] > i){
+                if(currWt + weights[j] > mid){
                     daysreq++;
                     currWt = 0;
                 }
                 currWt += weights[j];
             }
             if(daysreq <= days){
-                return i;
+               high = mid-1;
+            }else{
+                low = mid + 1;
             }
         }
-        return -1;
+        return low;
     }
 };
