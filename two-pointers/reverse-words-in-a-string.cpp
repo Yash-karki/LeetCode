@@ -12,7 +12,11 @@ public:
             while (i >= 0 && s[i] != ' '){
                 i--;
             }
-            string word = s.substr(i+1, end-i);  
+            string word = "";
+            for(int j = i+1; j<=end; j++){
+                word+=s[j];
+            }
+
             if (!result.empty()){
                 result += " ";
             }
