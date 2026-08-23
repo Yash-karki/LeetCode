@@ -17,7 +17,7 @@ public:
                 }
             }
             while(maxFreq--){
-                ans.push_back(maChar);
+                ans.push_back(maxChar);
             }
             mpp.erase(maxChar);
         }
