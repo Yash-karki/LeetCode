@@ -9,7 +9,7 @@ public:
         string ans = "";
         while(!mpp.empty()){
             char maxChar = 0;
-            char MaxFreq = 0;
+            char maxFreq = 0;
             for(auto it : mpp){
                 if(it.second > maxFreq){
                     maxFreq = it.second;
