@@ -1,7 +1,7 @@
 class Solution {
 public:
     string frequencySort(string s) {
-        unordered_map<int,int> mpp;
+        unordered_map<char,int> mpp;
 
         for(auto ch : s){
             mpp[ch]++;
@@ -9,7 +9,7 @@ public:
         string ans = "";
         while(!mpp.empty()){
             char maxChar = 0;
-            char maxFreq = 0;
+            int maxFreq = 0;
             for(auto it : mpp){
                 if(it.second > maxFreq){
                     maxFreq = it.second;
