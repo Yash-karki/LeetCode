@@ -7,7 +7,7 @@ public:
             mpp[ch]++;
         }
         string ans = "";
-        while(!mp.empty()){
+        while(!mpp.empty()){
             char maxChar = 0;
             char MaxFreq = 0;
             for(auto it : mpp){
@@ -22,6 +22,6 @@ public:
             mpp.erase(maxChar);
         }
         return ans;
-        
+
     }
 };
