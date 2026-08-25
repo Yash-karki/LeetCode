@@ -6,10 +6,10 @@ public:
             mpp[it]++;
         }
         for(auto it : ransomNote){
-            if(mpp[it] <= 0){
+            mpp[it]--;
+            if(mpp[it] < 0){
                 return false;
             }
-            mpp[it]--;
         }
         return true;
     }
