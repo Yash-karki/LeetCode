@@ -8,7 +8,7 @@ public:
         vector<int> hashMap(256,-1);
         while(r<n){
             if(hashMap[s[r]] != -1){
-                l = max(hashMap[s[r]]+1,1);
+                l = max(hashMap[s[r]]+1,l);
             }
             int len = r-l+1;
             ans = max(ans,len);
