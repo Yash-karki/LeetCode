@@ -17,12 +17,21 @@ class Solution {
 public:
     int earliestFullBloom(vector<int>& plantTime, vector<int>& growTime) {
         int n = plantTime.size();
-        int m = growTime.size();
-        int mini = *min_element(growTime.begin(),growTime.end());
-        int sum = 0;
+        vector<pair<int,int>> pr;
+        int plantSum = 0;
         for(int i = 0; i<n; i++){
-            sum += plantTime[i];
+
+            pr.push_back({growTime[i],plantTime[i]});
         }
-        return sum+mini;
+        sort(pr.rbegin(),pr.rend());
+        int growMax = 0;
+        for(auto it : pr){
+            int grow = it.first;
+            int plant = it.second;
+            plantSum += plant;
+            growMax = max(growMax, plantSum+grow);
+        }
+        return growMax;
     }
+
 };
