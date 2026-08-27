@@ -14,10 +14,14 @@ public:
         if(head == nullptr || head->next == nullptr){
             return nullptr;
         }
+
         ListNode* slow = head;
         ListNode* fast = head;
         for(int i = 0; i<n; i++){
             fast = fast->next;
+        }
+        if(fast ==  nullptr){
+            return head->next;
         }
         while(fast->next != nullptr){
             slow = slow->next;
