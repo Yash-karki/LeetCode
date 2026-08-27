@@ -11,9 +11,9 @@
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-        if(head == nullptr || head->next == nullptr){
-            return false;
-        }
+        // if(head == nullptr || head->next == nullptr){
+        //     return false;
+        // }
         ListNode* slow = head;
         ListNode* fast = head;
 
