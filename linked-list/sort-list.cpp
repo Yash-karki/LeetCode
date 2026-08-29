@@ -1,5 +1,3 @@
-auto __fast_io_atexit = []() { ios::sync_with_stdio(false); cin.tie(nullptr); std::atexit([]() { ofstream("display_runtime.txt") << "0"; }); return 0; }();
-
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -12,42 +10,41 @@ auto __fast_io_atexit = []() { ios::sync_with_stdio(false); cin.tie(nullptr); st
  */
 class Solution {
 public:
-
-    ListNode* letsMerge(ListNode* left, ListNode* right){
-        if(left == nullptr) return right;
-        if(right == nullptr) return left;
-
-        if(left->val < right->val){
-            left->next = letsMerge(left->next,right);
-            return left;
-        }else{
-            right->next = letsMerge(left,right->next);
-            return right;
-        }
-    }
-
-    ListNode* findMid(ListNode* head){
-        ListNode* slow = head;
-        ListNode* fast = head;
-        while(fast->next != nullptr && fast->next->next != nullptr){
-            slow = slow -> next;
-            fast = fast->next->next;
-        }
-
-        ListNode* mid = slow->next;
-        slow->next = nullptr;
-        return mid;
-    }
     ListNode* sortList(ListNode* head) {
         if(head == nullptr || head->next == nullptr){
             return head;
         }
-
-        ListNode* mid = findMid(head);
-
+        ListNode* slow = head;
+        ListNode* fast = head->next;
+        while(fast != nullptr && fast->next != nullptr){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        ListNode* right = slow->next;
+        slow->next = nullptr;
         ListNode* left = sortList(head);
-        ListNode* right = sortList(mid);
+        right = sortList(right);
+        ListNode* dummy = new ListNode(0);
+        ListNode* temp = dummy;
 
-        return letsMerge(left,right);
+        while(left!= nullptr && right != nullptr){
+            if(left->val <= right->val){
+                temp->next = left;
+                left = left->next;
+            }else{
+                temp->next = right;
+                right = right->next;
+            }
+            temp = temp->next;
+            
+        }
+        if(left){
+            temp->next = left;
+        }
+        if(right){
+            temp->next = right;
+        }
+        return dummy->next;
+
     }
 };
