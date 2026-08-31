@@ -11,27 +11,36 @@
 class Solution {
 public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
-        ListNode* prev=head, *temp=head->next;
-        int maxi=-1, mini=INT_MAX;
-        int count=1;
-        vector<int> last;
-        while(temp->next){
-            if((temp->val<prev->val && temp->val<temp->next->val) || 
-            (temp->val>prev->val && temp->val>temp->next->val)){
-                if(last.size()>=1){
-                    mini=min(mini, count-last.back());
-                    maxi=max(maxi, count-last[0]);
+        vector<int> ans = {-1,-1};
+        if(head == nullptr || head->next == nullptr || head->next->next == nullptr){
+            return ans;
+        }
+        ListNode* curr = head->next;
+        ListNode* prev = head;
+        int pos = 1;
+        int first = -1;
+        int last = -1;
+        int minDist = INT_MAX;
+
+        while(curr->next != nullptr){
+            ListNode* next = curr->next;
+            if((curr->val > next->val && curr->val > prev->val) || (curr->val < prev->val && curr->val < next->val)){
+                if(first == -1){
+                    first = pos;
+                }else{
+                    minDist = min(minDist, pos-last);
                 }
-                last.push_back(count);
+                last = pos;
             }
-            count++;
-            temp=temp->next;
-            prev=prev->next;
+            prev = curr;
+            curr = next;
+            pos++;
         }
-        for(int val:last) cout<<val<<" ";
-        if(last.size()<=1){
-            return {-1, -1};
+        if(first == last){
+            return ans;
         }
-        return {mini, maxi};
+        ans[0] = minDist;
+        ans[1] = last - first;
+        return ans;
     }
 };
