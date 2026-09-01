@@ -6,8 +6,8 @@ public:
         int start = 0;
         int total = 0;
         for(int i = 0; i<n; i++){
-            int total += gas[i]-cost[i];
-            int extra +=gas[i]-cost[i];
+            total += gas[i]-cost[i];
+            extra += gas[i]-cost[i];
             if(extra <0){
                 extra = 0;
                 start = i+1;
