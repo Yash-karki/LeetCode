@@ -14,31 +14,14 @@ public:
         }
         ListNode* temp1 = headA;
         ListNode* temp2 = headB;
-        int sizeA = 0;
-        int sizeB = 0;
-        while(temp1 != nullptr){
-            temp1 = temp1->next;
-            sizeA++;
-        }
-        temp1 = headA;
-        while(temp2 != nullptr){
-            temp2 = temp2->next;
-            sizeB++;
-        }
-        temp2 = headB;
-        if(sizeA > sizeB){
-            while(sizeA != sizeB && temp1 != nullptr){
-                temp1 = temp1->next;
-                sizeA--;
+        while(temp1 != temp2){
+            if(temp1 == nullptr){
+                temp1 = headB;
             }
-        }else if(sizeB>sizeA){
-            while(sizeB != sizeA && temp2 != nullptr){
-                temp2 = temp2->next;
-                sizeB--;
-            }
-        }
-        while(temp1 != temp2 && temp1 != nullptr && temp2 != nullptr){
             temp1 = temp1->next;
+            if(temp2 == nullptr){
+                temp2 = headA;
+            }
             temp2 = temp2->next;
         }
         return temp1;
