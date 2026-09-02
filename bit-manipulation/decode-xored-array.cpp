@@ -1,8 +1,8 @@
 class Solution {
 public:
     vector<int> decode(vector<int>& encoded, int first) {
-        vector<int> ans;
         int n = encoded.size();
+        vector<int> ans(n+1);
         ans.push_back(first);
         for(int i = 0; i<n; i++){
             ans.push_back(encoded[i]^ans[i]);
