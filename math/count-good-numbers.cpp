@@ -10,12 +10,12 @@ public:
         long long result;
 
         if (index % 2 == 0) {
-            result = 5 * solve(index + 1, n);
+            result = 5 * solve(index + 1, n) % MOD;
         } else {
-            result = 4 * solve(index + 1, n);
+            result = 4 * solve(index + 1, n) % MOD;
         }
 
-        return result % MOD;
+        return result;
     }
 
     int countGoodNumbers(long long n) {
