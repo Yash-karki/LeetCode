@@ -11,21 +11,21 @@
 class Solution {
 public:
 
-    ListNode* reverse(ListNode* head) {
+    ListNode* reverse(ListNode* head){
         ListNode* curr = head;
         ListNode* prev = nullptr;
-        while(curr != nullptr){
+        
+        while(curr){
             ListNode* next = curr->next;
             curr->next = prev;
-            prev = curr;
-            curr = next;
+            prev=curr;
+            curr=next;
         }
         return prev;
-        
     }
 
-    ListNode* solve(ListNode* temp, int k) {
-        k -= 1;
+    ListNode* findKnode(ListNode* temp, int k) {
+        k = k - 1;
         while (temp && k > 0) {
             k--;
             temp = temp->next;
@@ -35,21 +35,21 @@ public:
 
     ListNode* reverseKGroup(ListNode* head, int k) {
         ListNode* temp = head;
-        ListNode* prevNode = nullptr;
+        ListNode* prev = nullptr;
         while (temp) {
-            ListNode* knode = solve(temp, k);
+            ListNode* knode = findKnode(temp, k);
             if (knode == nullptr) {
                 break;
             }
             ListNode* nextNode = knode->next;
             knode->next = nullptr;
             reverse(temp);
-            if (head == temp) {
+            if (temp == head) {
                 head = knode;
             } else {
-                prevNode->next = knode;
+                prev->next = knode;
             }
-            prevNode = temp;
+            prev = temp;
             temp->next = nextNode;
             temp = nextNode;
         }
