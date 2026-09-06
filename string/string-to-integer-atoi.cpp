@@ -3,7 +3,7 @@ public:
     int myAtoi(string s) {
         int i = 0;
         int sign = 1;
-        int ans = 0;
+        long long ans = 0;
         while(i<s.size() && s[i] == ' '){
             i++;
         }
@@ -17,6 +17,11 @@ public:
             if(s[i] >= '0' && s[i] <= '9'){
                 ans*= 10;
                 ans+=s[i] - '0';
+                if(ans > INT_MAX && sign == -1){
+                    return INT_MIN;
+                }else if(ans > INT_MAX && sign == 1){
+                    return INT_MAX;
+                }
                 i++;
             }
             else{
