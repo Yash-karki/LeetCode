@@ -17,6 +17,7 @@ public:
 
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
         vector<vector<int>> res;
+        sort(nums.begin(),nums.end());
         vector<int> output;
         int index = 0;
         solve(nums,res,output,index);
