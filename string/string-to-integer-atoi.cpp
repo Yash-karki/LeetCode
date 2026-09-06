@@ -37,6 +37,9 @@ public:
         if (s[i] < '0' || s[i] > '9') {
             return;
         }
+        if(ans > INT_MAX){
+            return;
+        }
         ans *= 10;
         ans += s[i] - '0';
         solve(i+1,ans,s);
