@@ -31,13 +31,16 @@ public:
     //     return ans*sign;
     // }
 
-    // Recursion
 
+    // Recursion
     void solve(int i, long long& ans, string& s) {
         if (s[i] < '0' || s[i] > '9') {
             return;
         }
         if(ans > INT_MAX){
+            return;
+        }
+        if(i>=s.size()){
             return;
         }
         ans *= 10;
