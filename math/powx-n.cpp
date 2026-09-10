@@ -17,8 +17,8 @@ public:
     double myPow(double x, int n) {
         int num = n;
         if (num < 0) {
-            return (1.0 / solve(x, -1 * n));
+            return (1.0 / solve(x, -1 * num));
         }
-        return solve(x, n);
+        return solve(x, num);
     }
 };
