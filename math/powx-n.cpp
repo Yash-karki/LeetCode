@@ -1,6 +1,11 @@
 class Solution {
 public:
-    double solve(double x, long long n) {
+
+    double myPow(double x, long long n) {
+        int num = n;
+        if (n < 0) {
+            return (1.0/ myPow(x,-1*n));
+        }
         if (n == 1) {
             return x;
         }
@@ -8,17 +13,9 @@ public:
             return 1.0;
         }
         if (n % 2 == 0) {
-            return solve(x * x, n / 2);
+            return myPow(x * x, n / 2);
         } else {
-            return x*solve(x, n - 1);
+            return x*myPow(x, n - 1);
         }
-    }
-
-    double myPow(double x, int n) {
-        long long num = n;
-        if (num < 0) {
-            return (1.0 / solve(x, -1 * num));
-        }
-        return solve(x, n);
     }
 };
