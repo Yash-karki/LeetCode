@@ -2,7 +2,6 @@ class Solution {
 public:
 
     double myPow(double x, long long n) {
-        int num = n;
         if (n < 0) {
             return (1.0/ myPow(x,-1*n));
         }
