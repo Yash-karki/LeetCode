@@ -1,6 +1,6 @@
 class Solution {
 public:
-    double solve(double x, int n) {
+    double solve(double x, long long n) {
         if (n == 1) {
             return x;
         }
@@ -15,10 +15,10 @@ public:
     }
 
     double myPow(double x, int n) {
-        int num = n;
+        long long num = n;
         if (num < 0) {
             return (1.0 / solve(x, -1 * num));
         }
-        return solve(x, num);
+        return solve(x, n);
     }
 };
