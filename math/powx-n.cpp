@@ -3,7 +3,8 @@ public:
 
     double myPow(double x, long long n) {
         if (n < 0) {
-            return (1.0/ myPow(x,-1*n));
+            x = 1.0/x;
+            n *= -1;
         }
         if (n == 1) {
             return x;
