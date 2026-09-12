@@ -1,22 +1,20 @@
 class Solution {
 public:
-    const int MOD = 1e9 + 7;
+    const int M = 1e9+7;
 
-    long long solve(long long index, long long n) {
-        if (index == n) {
+    int solve(long long a, long long b){
+        if(b == 0){
             return 1;
         }
-
-        long long result;
-
-        if (index % 2 == 0) {
-            return(5 * solve(index + 1, n)) % MOD;
-        } else {
-            return (4 * solve(index + 1, n)) % MOD;
+        long long half = solve(a,b/2);
+        long long result = (half*half)%M;
+        if(b%2 == 1){
+            result = (result*a)%M;
         }
+        return result;
     }
 
     int countGoodNumbers(long long n) {
-        return solve(0, n);
+        return (long long)solve(4,n/2)*solve(5,(n+1)/2)%M;
     }
 };
