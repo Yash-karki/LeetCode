@@ -1,7 +1,7 @@
 class Solution {
 public:
 
-    void solve(string str, int open, int close,  vector<string> &ans){
+    void solve(string& str,int open, int close, vector<string>& ans){
         if(open == 0 && close == 0){
             ans.push_back(str);
             return;
@@ -22,13 +22,13 @@ public:
             solve(str1,open-1,close,ans);
             solve(str2,open,close-1,ans);
         }
-
     }
+
     vector<string> generateParenthesis(int n) {
+        vector<string> ans;
+        string str;
         int open = n;
         int close = n;
-        vector<string> ans;
-        string str = "";
         solve(str,open,close,ans);
         return ans;
     }
