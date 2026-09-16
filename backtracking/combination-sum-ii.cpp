@@ -15,7 +15,7 @@ public:
         arr.push_back(candidates[index]);
         solve(ans,arr,index+1,candidates,target-candidates[index]);
         arr.pop_back();
-        while(candidates[index] == candidates[index+1] && index < candidates.size()){
+        while(candidates[index] == candidates[index+1] && index < candidates.size()-1){
             index++;
         }
         solve(ans,arr,index+1,candidates,target);
